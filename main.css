@@ -24,10 +24,19 @@ body {
   width: 10vw;
 }
 
+.left {
+  order: -1;
+}
+
 main {
   background: white;
   width: 80vw;
   padding: 25px;
+  order: 0;
+}
+
+.right {
+  order: 1;
 }
 
 .flex-container {
@@ -60,4 +69,105 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 1250px) {
+  .flex-container {
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  main {
+    order: 0;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-container {
+    padding: 20px;
+  }
+
+  .right {
+    order: 2;
+  }
+
+  .left,
+  .right {
+    width: 100vw;
+    min-height: 0;
+  }
+}
+
+.icon {
+  border-radius: 4.5vw;
+  width: 9vw;
+  height: 9vw;
+  display: flex;
+  text-align: center;
+  color: white;
+  background: black;
+  margin-left: 2.5vw;
+  font-size: 20px;
+  text-decoration: none;
+  display: none;
+}
+
+@media screen and (max-width: 650px) {
+  nav {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+  }
+}
+
+/* RESPONSIVE NAVIGATION */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
